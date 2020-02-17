@@ -1,0 +1,2 @@
+interface IDBEntity { }
+export { IDBEntity };

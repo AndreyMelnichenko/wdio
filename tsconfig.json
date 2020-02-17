@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./*"],
+      "src/*": ["./src/*"]
+    },
+    "typeRoots": ["./types"],
+    "types": [
+      "node",
+      "chai",
+      "@wdio/cucumber-framework",
+      "@wdio/sync"
+    ],
+    "target": "es6",
+    "experimentalDecorators": true
+  },
+  "include": ["./src/**/*.ts"]
+}
