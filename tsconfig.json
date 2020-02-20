@@ -13,7 +13,14 @@
       "@wdio/sync"
     ],
     "target": "es6",
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "removeComments": true,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "outDir": "./tsrc"
   },
   "include": ["./src/**/*.ts"]
 }

@@ -1,15 +1,10 @@
-import {expect} from "chai";
 import { TableDefinition } from 'cucumber';
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'fs';
-// @ts-ignore
-import { moment } from 'moment';
-// @ts-ignore
+import moment from 'moment';
 import * as randomstring from 'randomstring';
 import * as URL from "url";
 import { CustomWorld } from '../models/CustomWorld';
 import { World } from '../models/World';
-import {IRcwLocation} from "../pages/rcw/IRcwLocation";
-import {IOverviewInfo} from "../pages/reputationManager/overview.page";
 import { Constants } from './constants';
 
 abstract class Helper {
@@ -303,42 +298,6 @@ abstract class Helper {
     const a = new RegExp("(\\d+)");
     const id = a.exec(myString);
     return id[0];
-  }
-
-  public static getIRcwLocation(gerkinData:object):IRcwLocation{
-    const obj = {};
-    // tslint:disable-next-line:no-string-literal
-    const arr:[[string]] = gerkinData['rawTable'];
-    const keys:string[] = [];
-    // tslint:disable-next-line:prefer-for-of
-    for(let i = 0; i< arr.length; i++){
-      // tslint:disable-next-line:prefer-for-of
-      for(let k=0; k<arr[i].length;k++){
-        // console.log("Certain item ["+i+"] "+arr[i][k]);
-        if(i===0){
-          obj[arr[i][k]] = null;
-          keys[k] = arr[i][k];
-        }else {
-          if(arr[i][k].includes('RANDOM')){
-            arr[i][k] = Helper.getMultiRandomForString(arr[i][k]);
-          }
-          obj[keys[k]] = arr[i][k]
-        }
-      }
-    }
-    const rcwLocationDate:IRcwLocation = {
-      "Location Name / Business Name": obj["Location Name / Business Name"],
-      // tslint:disable-next-line:no-string-literal
-      "Country": obj["Country"],
-      "State / County / Region": obj["State / County / Region"],
-      "Town / City": obj["Town / City"],
-      "Business Category": obj["Business Category"],
-      "Address Line 1": obj["Address Line 1"],
-      "Zipcode / Postcode": obj["Zipcode / Postcode"],
-      "Phone Number": obj["Phone Number"],
-    };
-    expect(Object.keys(obj),'Some of required keys UNDEFINED!!!!').to.have.members(Object.keys(rcwLocationDate));
-    return rcwLocationDate;
   }
 
   public static getKeyNameByValue(requiredObject:object, value:string):string{

@@ -1,5 +1,5 @@
 import { Cookie, parse } from "set-cookie-parser";
-import { IUser } from "../../models/User";
+import { IUser } from "src/models/User";
 import { Client } from "../client/client";
 
 class LoginAPI extends Client {
