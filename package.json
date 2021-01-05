@@ -48,7 +48,7 @@
         "allure-commandline": "^2.13.0",
         "chai": "^4.2.0",
         "moment": "^2.23.0",
-        "axios": "^0.18.0",
+        "axios": "^0.21.1",
         "braintree": "^2.14.0",
         "chai-datetime": "^1.5.0",
         "chai-string": "^1.5.0",
